@@ -76,31 +76,40 @@ Acceptance Criteria:
 
 In order to remove duplicates and/or recommendations that do not excite/depress a user
 I want to delete an existing recommendation
-```
+
 Usage example:
+
 > ./recommender manage
+```
 1. Add a recommendation
 2. List all recommendations
 3. Exit
 ```
 > 2
 
+```
 1. Game Of Thrones - George R. R. Martin
 2. Prodigal Daughter - Jeffrey Archer
 3. The Third Twin - Ken Follett
+```
 > 3
 
+
+```
 Would you like to?
 1. Edit
 2. Delete
 3. Exit
-
+```
 > 2
 
+
+```
 "The Third Twin by Ken Follett" has been deleted
 1. Add a recommendation
 2. List all recommendations
 3. Exit
+```
 
 
 Acceptance Criteria:
