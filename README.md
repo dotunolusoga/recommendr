@@ -25,7 +25,7 @@ Evaluating all existing book recommendations
 
 Usage example:
 ```
-> ./recommender manage
+> ./recommendr manage
 1. Add a recommendation
 2. List all recommendations
 3. Exit
