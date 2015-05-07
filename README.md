@@ -43,8 +43,9 @@ Acceptance Criteria:
 
 
 ### Adding a recommendation
-```
+
 Usage example:
+```
 > ./recommendr manage
 1. Add a recommendation
 2. List all recommendations
