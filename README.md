@@ -22,8 +22,9 @@ Updating existing books to keep recommendation relevant and entertaining, and al
 ### View all existing book recommendations
 
 Evaluating all existing book recommendations
-```
+
 Usage example:
+```
 > ./recommender manage
 1. Add a recommendation
 2. List all recommendations
