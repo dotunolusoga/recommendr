@@ -22,13 +22,13 @@ Updating existing books to keep recommendation relevant and entertaining, and al
 ### View all existing book recommendations
 
 Evaluating all existing book recommendations
-
+```
 Usage example:
 > ./recommender manage
 1. Add a recommendation
 2. List all recommendations
 3. Exit
-
+```
 > 2
 
 1. Game Of Thrones - George R. R. Martin
@@ -42,13 +42,13 @@ Acceptance Criteria:
 
 
 ### Adding a recommendation
-
+```
 Usage example:
 > ./recommendr manage
 1. Add a recommendation
 2. List all recommendations
 3. Exit
-
+```
 > 1
 
 What is the book title?
@@ -76,13 +76,13 @@ Acceptance Criteria:
 
 In order to remove duplicates and/or recommendations that do not excite/depress a user
 I want to delete an existing recommendation
-
+```
 Usage example:
 > ./recommender manage
 1. Add a recommendation
 2. List all recommendations
 3. Exit
-
+```
 > 2
 
 1. Game Of Thrones - George R. R. Martin
