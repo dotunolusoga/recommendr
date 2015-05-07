@@ -80,9 +80,9 @@ In order to remove duplicates and/or recommendations that do not excite/depress 
 I want to delete an existing recommendation
 
 Usage example:
-
-> ./recommender manage
 ```
+> ./recommender manage
+
 1. Add a recommendation
 2. List all recommendations
 3. Exit
