@@ -106,7 +106,6 @@ Acceptance Criteria:
 * After the addition the user is taken back to the main manage menu
 
 
-
 ### Deleting a recommendation
 
 In order to remove duplicates and/or recommendations that do not excite/depress a user

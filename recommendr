@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require "highline/import"
+
+menu_prompt = <<EOS
+1. Add a recommendation
+2. List all recommendations
+3. Exit
+EOS
+
+if ARGV.length < 1
+  print "[Help] Run as: ./recommendr manage"
+elsif ARGV.length == 1
+  #Not valid argument
+  if ARGV[0] != 'manage'
+    print "[Help] Run as: ./recommendr manage"
+  else
+    choose do |menu|
+      menu.prompt = ""
+
+      menu.choice('Add a recommendation') { say ("") }
+      menu.choice('List all recommendations') { say ("No recommendations found. Add a recommendation.\n") }
+      menu.choice('Exit') { say ("You have successfully exited the management menu.") }
+    end
+  end
+end
