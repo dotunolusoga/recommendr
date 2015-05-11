@@ -3,21 +3,53 @@ A book recommendation app - An interactive Ruby Command Line Application
 
 # Project Vision
 
-This will be a command line program that asks a user about the weather, their mood etc and uses this information to recommend a book that's intended to change their mood(not always for the better), as well give witty puns, insults or sayings.
+This will be a command line program that asks a user about the weather, their mood etc and uses this information to recommend a book that's intended to change their mood(not always for the better), as well as give witty puns, insults or sayings.
 
 ## Features
 
 ### Getting a recommendation
 
-Users receive recommendations for books to read based on their answers to questions on mood, and the current weather
+Users receive recommendations for books to read based on their answers to questions on their mood, and the current weather
 
-### Adding new books
+### Adding a new book
 
 In order to provide a wide range of options to users, new books can be added
 
 ### Editing existing books
 
 Updating existing books to keep recommendation relevant and entertaining, and also to fix typos.
+
+
+### Get a recommendation
+
+Getting a book recommendation
+
+Usage example:
+```
+> ./recommendr
+How do you feel today?
+1. Happy
+2. Miserable
+3. So So
+```
+> 2
+
+Can we recommend a book for you?(y/n)
+
+> 1
+
+```
+Cool. Take a gander at "To The Hilt by Dick Francis". It's a fun, easy read about horses, what could be better?
+1. Add a recommendation
+2. List all recommendations
+3. Exit
+```
+
+Acceptance Criteria:
+    * A book recommendation is given.
+    * With the name of the author as well as a witty quip at the end.
+    * After the recommendation, the user is taken back to the main manage menu
+
 
 ### View all existing book recommendations
 
@@ -61,11 +93,12 @@ Who is the author?
 
 > Dick Francis
 
+```
 "To The Hilt by Dick Francis" has been added to recommendations
 1. Add a recommendation
 2. List all recommendations
 3. Exit
-
+```
 Acceptance Criteria:
 
 * The program prints out confirmation that the new recommendation has been added
