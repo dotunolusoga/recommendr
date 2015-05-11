@@ -99,7 +99,7 @@ What is the attached saying?
 
 Source of the saying?
 
-> Groucho Marx 
+> Groucho Marx
 
 ```
 "To The Hilt by Dick Francis" has been added to recommendations
@@ -180,7 +180,7 @@ Edit saying?(y/n)
 
 Acceptance Criteria:
 
-* The program prints out confirmation that the recommendation has been deleted
+* The program prints out confirmation that the recommendation has been edited
 * The edited recommendation is updated in the database
 * All references to the edited recommendation are updated in the database
 * After the editing the user is taken back to the main manage menu

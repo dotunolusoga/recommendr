@@ -21,8 +21,8 @@ elsif ARGV.length == 1
       menu.prompt = ""
 
       menu.choice('Add a recommendation') { say ("") }
-      menu.choice('Edit a recommendation') { say ("") }
-      menu.choice('Delete a recommendation') { say ("") }
+      menu.choice('Edit a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
+      menu.choice('Delete a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
       menu.choice('List all recommendations') { say ("No recommendations found. Add a recommendation.\n") }
       menu.choice('Exit') { say ("You have successfully exited the management menu.") }
     end
