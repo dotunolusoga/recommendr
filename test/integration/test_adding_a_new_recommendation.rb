@@ -59,10 +59,12 @@ class AddingANewRecommendationTest < MiniTest::Test
     IO.popen('./recommendr manage', 'r+') do |pipe|
       expected_output = <<EOS
 1. Add a recommendation
-2. List all recommendations
-3. Exit
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
 EOS
-      pipe.puts "3"
+      pipe.puts "5"
       expected_output << "You have successfully exited the management menu.\n"
       pipe.close_write
       shell_output = pipe.read

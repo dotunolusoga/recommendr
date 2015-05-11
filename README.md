@@ -36,19 +36,15 @@ How do you feel today?
 
 Can we recommend a book for you?(y/n)
 
-> 1
+> y
 
 ```
 Cool. Take a gander at "To The Hilt by Dick Francis". It's a fun, easy read about horses, what could be better?
-1. Add a recommendation
-2. List all recommendations
-3. Exit
 ```
 
 Acceptance Criteria:
   * A book recommendation is given.
   * With the name of the author as well as a witty quip at the end.
-  * After the recommendation, the user is taken back to the main manage menu
 
 
 ### View all existing book recommendations
@@ -59,8 +55,10 @@ Usage example:
 ```
 > ./recommendr manage
 1. Add a recommendation
-2. List all recommendations
-3. Exit
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
 ```
 > 2
 
@@ -80,8 +78,10 @@ Usage example:
 ```
 > ./recommendr manage
 1. Add a recommendation
-2. List all recommendations
-3. Exit
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
 ```
 > 1
 
@@ -93,17 +93,98 @@ Who is the author?
 
 > Dick Francis
 
+What is the attached saying?
+
+> "Man does not control his own fate. The women in his life do that for him."
+
+Source of the saying?
+
+> Groucho Marx 
+
 ```
 "To The Hilt by Dick Francis" has been added to recommendations
 1. Add a recommendation
-2. List all recommendations
-3. Exit
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
 ```
 Acceptance Criteria:
 
 * The program prints out confirmation that the new recommendation has been added
 * The new recommendation is added to the database
 * After the addition the user is taken back to the main manage menu
+
+
+### Editing a recommendation
+
+Updating existing books to keep recommendation relevant and entertaining, or to change the saying attached to it, and also to fix typos.
+
+I want to edit an existing recommendation
+
+Usage example:
+```
+> ./recommender manage
+
+1. Add a recommendation
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
+```
+> 2
+
+```
+Which recommendation fails to meet your exacting standards "Oh Great & Powerful One"?
+
+1. Game Of Thrones - George R. R. Martin | You seem too chipper. This book where(spoiler alert) everyone dies, should cut you down to size!
+2. Prodigal Daughter - Jeffrey Archer | "Some people claim that marriage interferes with romance. There's no doubt about it. Anytime you have a romance, your wife is bound to interfere." — Groucho Marx
+3. The Third Twin - Ken Follett | "Only one man in a thousand is a leader of men -- the other 999 follow women." — Groucho Marx
+```
+> 3
+
+
+You want to edit "The Third Twin - Ken Follett"? (y/n)
+
+> y
+
+Edit book title?(y/n)
+
+> y
+
+New book title?
+
+> Mexico
+
+Edit book author?(y/n)
+
+> y
+
+New author?
+
+> James Michener
+
+Edit saying?(y/n)
+
+> n
+
+```
+"The Third Twin by Ken Follett" has been edited
+1. Add a recommendation
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
+```
+
+
+Acceptance Criteria:
+
+* The program prints out confirmation that the recommendation has been deleted
+* The edited recommendation is updated in the database
+* All references to the edited recommendation are updated in the database
+* After the editing the user is taken back to the main manage menu
+
 
 
 ### Deleting a recommendation
@@ -117,33 +198,36 @@ Usage example:
 > ./recommender manage
 
 1. Add a recommendation
-2. List all recommendations
-3. Exit
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
 ```
-> 2
+> 3
 
 ```
-1. Game Of Thrones - George R. R. Martin
-2. Prodigal Daughter - Jeffrey Archer
-3. The Third Twin - Ken Follett
+Which recommendation fails to meet your exacting standards "Oh Great & Powerful One"?
+
+1. Game Of Thrones - George R. R. Martin | You seem too chipper. This book where(spoiler alert) everyone dies, should cut you down to size!
+2. Prodigal Daughter - Jeffrey Archer | "Some people claim that marriage interferes with romance. There's no doubt about it. Anytime you have a romance, your wife is bound to interfere." — Groucho Marx
+3. The Third Twin - Ken Follett | "Only one man in a thousand is a leader of men -- the other 999 follow women." — Groucho Marx
 ```
 > 3
 
 
 ```
-Would you like to?
-1. Edit
-2. Delete
-3. Exit
+Are you sure? (y/n)
 ```
-> 2
+> y
 
 
 ```
 "The Third Twin by Ken Follett" has been deleted
 1. Add a recommendation
-2. List all recommendations
-3. Exit
+2. Edit a recommendation
+3. Delete a recommendation
+4. List all recommendations
+5. Exit
 ```
 
 
