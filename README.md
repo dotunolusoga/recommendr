@@ -9,7 +9,7 @@ This will be a command line program that asks a user about the weather, their mo
 
 ### Getting a recommendation
 
-Users receive recommendations for books to read based on their answers to questions on their mood, and the current weather
+Users receive recommendations for books to read based on their answers to questions on their mood.
 
 ### Adding a new book
 
@@ -46,9 +46,9 @@ Cool. Take a gander at "To The Hilt by Dick Francis". It's a fun, easy read abou
 ```
 
 Acceptance Criteria:
-    * A book recommendation is given.
-    * With the name of the author as well as a witty quip at the end.
-    * After the recommendation, the user is taken back to the main manage menu
+  * A book recommendation is given.
+  * With the name of the author as well as a witty quip at the end.
+  * After the recommendation, the user is taken back to the main manage menu
 
 
 ### View all existing book recommendations
@@ -64,9 +64,9 @@ Usage example:
 ```
 > 2
 
-1. Game Of Thrones - George R. R. Martin
-2. Prodigal Daughter - Jeffrey Archer
-3. The Third Twin - Ken Follett
+1. Game Of Thrones - George R. R. Martin  
+2. Prodigal Daughter - Jeffrey Archer  
+3. The Third Twin - Ken Follett  
 
 Acceptance Criteria:
 
@@ -110,6 +110,7 @@ Acceptance Criteria:
 ### Deleting a recommendation
 
 In order to remove duplicates and/or recommendations that do not excite/depress a user
+
 I want to delete an existing recommendation
 
 Usage example:
