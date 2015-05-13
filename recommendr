@@ -23,11 +23,17 @@ if ARGV.size == 1 and ARGV[0] == 'manage'
 
     recommendation_controller = RecommendationsController.new
 
-    menu.choice('Add a recommendation') { say ("") }
+    menu.choice('Add a recommendation') { say ("What recommendation would you like to add?") }
     menu.choice('Edit a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
     menu.choice('Delete a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
-    menu.choice('List all recommendations') { recommendation_controller.index }
-    menu.choice('Exit') { say ("You have successfully exited the management menu.") }
+    menu.choice('List all recommendations') do
+      say (recommendation_controller.index)
+      exit
+    end
+    menu.choice('Exit') do
+      say ("You have successfully exited the management menu.") 
+      exit
+    end
   end
 else
   print_error_message

@@ -33,5 +33,24 @@ require_relative "../test_helper"
 
 class AddingANewRecommendationTest < MiniTest::Test
 
+  def test_adding_a_single_recommendation
+    shell_output = ""
+    expected_output = ""
+    test_rec = "A Song of Ice and Fire"
+    IO.popen('./recommendr manage', 'r+') do |pipe|
+      expected_output = main_menu
+      pipe.puts "1"
+      expected_output << "What recommendation would you like to add?\n"
+      pipe.puts test_rec
+      expected_output << "\"#{test_rec}\" has been added"
+      expected_output << main_menu
+      pipe.puts "3"
+      expected_output << "You have successfully exited the management menu."
+      shell_output = pipe.read
+      pipe.close_write
+      pipe.close_read
+    end
+    assert_equal expected_output, shell_output
+  end
 
 end
