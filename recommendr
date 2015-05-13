@@ -2,6 +2,9 @@
 
 require "highline/import"
 
+Dir["./app/**/*.rb"].each { |f| require f }
+Dir["./lib/*.rb"].each { |f| require f }
+
 menu_prompt = <<EOS
 1. Add a recommendation
 2. Edit a recommendation
@@ -14,21 +17,18 @@ def print_error_message
   puts "[Help] Run as: ./recommendr manage"
 end
 
-if ARGV.length < 1
-  print_error_message
-elsif ARGV.length == 1
-  #Not valid argument
-  if ARGV[0] != 'manage'
-    print_error_message
-  else
-    choose do |menu|
-      menu.prompt = ""
+if ARGV.size == 1 and ARGV[0] == 'manage'
+  choose do |menu|
+    menu.prompt = ""
 
-      menu.choice('Add a recommendation') { say ("") }
-      menu.choice('Edit a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
-      menu.choice('Delete a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
-      menu.choice('List all recommendations') { say ("No recommendations found. Add a recommendation.\n") }
-      menu.choice('Exit') { say ("You have successfully exited the management menu.") }
-    end
+    recommendation_controller = RecommendationsController.new
+
+    menu.choice('Add a recommendation') { say ("") }
+    menu.choice('Edit a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
+    menu.choice('Delete a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
+    menu.choice('List all recommendations') { recommendation_controller.index }
+    menu.choice('Exit') { say ("You have successfully exited the management menu.") }
   end
+else
+  print_error_message
 end

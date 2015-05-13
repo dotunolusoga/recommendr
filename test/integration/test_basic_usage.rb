@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 class BasicUsageTest < MiniTest::Test
-  
+
   def test_minimum_arguments_required
     shell_output = ""
     expected_output = ""
@@ -16,6 +16,16 @@ class BasicUsageTest < MiniTest::Test
     shell_output = ""
     expected_output = ""
     IO.popen('./recommendr blah') do |pipe|
+      expected_output = "[Help] Run as: ./recommendr manage\n"
+      shell_output = pipe.read
+    end
+    assert_equal expected_output, shell_output
+  end
+
+  def test_manage_multiple_arguments_given
+    shell_output = ""
+    expected_output = ""
+    IO.popen('./recommendr manage blah') do |pipe|
       expected_output = "[Help] Run as: ./recommendr manage\n"
       shell_output = pipe.read
     end
