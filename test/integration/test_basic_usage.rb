@@ -6,13 +6,13 @@ class BasicUsageTest < MiniTest::Test
     shell_output = ""
     expected_output = ""
     IO.popen('./recommendr') do |pipe|
-      expected_output = "[Help] Run as: ./recommendr manage\n"
+      expected_output = "Can we make a recommendation for you today?(y/n)\n"
       shell_output = pipe.read
     end
     assert_equal expected_output, shell_output
   end
 
-  def test_manage_argument_not_given
+  def test_wrong_argument_given
     shell_output = ""
     expected_output = ""
     IO.popen('./recommendr blah') do |pipe|
@@ -32,7 +32,7 @@ class BasicUsageTest < MiniTest::Test
     assert_equal expected_output, shell_output
   end
 
-  def test_manage_argument_given
+  def test_manage_argument_given_then_exit
     shell_output = ""
     expected_output = ""
     IO.popen('./recommendr manage', 'r+') do |pipe|

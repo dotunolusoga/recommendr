@@ -17,22 +17,41 @@ def print_error_message
   puts "[Help] Run as: ./recommendr manage"
 end
 
-if ARGV.size == 1 and ARGV[0] == 'manage'
-  choose do |menu|
-    menu.prompt = ""
+if ARGV.empty?
+  puts 'Can we make a recommendation for you today?(y/n)'
+elsif ARGV.size == 1 and ARGV[0] == 'manage'
+  loop do
+    choose do |menu|
+      menu.prompt = ""
 
-    recommendation_controller = RecommendationsController.new
+      recommendation_controller = RecommendationsController.new
 
-    menu.choice('Add a recommendation') { say ("What recommendation would you like to add?") }
-    menu.choice('Edit a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
-    menu.choice('Delete a recommendation') { say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n") }
-    menu.choice('List all recommendations') do
-      say (recommendation_controller.index)
-      exit
-    end
-    menu.choice('Exit') do
-      say ("You have successfully exited the management menu.") 
-      exit
+      menu.choice('Add a recommendation') do
+        loop do
+          user_input = ask("What recommendation would you like to add?")
+          response = recommendation_controller.add(user_input)
+          say(response) unless response.nil?
+          if /has\sbeen\sadded$/.match(response)
+            break
+          end
+        end
+      end
+      menu.choice('Edit a recommendation') do
+        say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n")
+        exit
+      end
+      menu.choice('Delete a recommendation') do
+        say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n")
+        exit
+      end
+      menu.choice('List all recommendations') do
+        say (recommendation_controller.index)
+        exit
+      end
+      menu.choice('Exit') do
+        say ("You have successfully exited the management menu.")
+        exit
+      end
     end
   end
 else

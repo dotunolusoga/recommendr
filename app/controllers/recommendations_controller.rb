@@ -15,4 +15,14 @@ class RecommendationsController
     end
   end
 
+  def add(title)
+    title_set = title.strip
+    recommendation = Recommendation.new(title_set)
+    if recommendation.save
+      "\"#{title}\" has been added\n"
+    else
+      recommendation.errors
+    end
+  end
+
 end
