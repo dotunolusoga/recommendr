@@ -27,14 +27,7 @@ elsif ARGV.size == 1 and ARGV[0] == 'manage'
       recommendation_controller = RecommendationsController.new
 
       menu.choice('Add a recommendation') do
-        loop do
-          user_input = ask("What recommendation would you like to add?")
-          response = recommendation_controller.add(user_input)
-          say(response) unless response.nil?
-          if /has\sbeen\sadded$/.match(response)
-            break
-          end
-        end
+        say (recommendation_controller.add_details)
       end
       menu.choice('Edit a recommendation') do
         say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n")

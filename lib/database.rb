@@ -6,7 +6,11 @@ class Database
     Database.execute <<-SQL
     CREATE TABLE IF NOT EXISTS recommendations (
       id integer PRIMARY KEY AUTOINCREMENT,
-      title varchar(255) NOT NULL
+      title varchar(255) NOT NULL,
+      author varchar(255),
+      quip varchar(400),
+      source varchar(255),
+      mood varchar(40)
     );
     SQL
   end
