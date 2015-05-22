@@ -35,16 +35,25 @@ class AddingANewRecommendationTest < MiniTest::Test
 
   def test_adding_a_single_recommendation
     shell_output = ""
-    expected_output = main_menu
+    expected_output = ""
     test_rec = "A Song of Ice and Fire"
     IO.popen('./recommendr manage', 'r+') do |pipe|
+      expected_output << main_menu
       pipe.puts "1"
       expected_output << "What recommendation would you like to add?\n"
       pipe.puts test_rec
+      expected_output << "Who is the author of this book?\n"
+      pipe.puts "George R. R. Martin"
+      expected_output << "What quip goes with this recommendation?\n"
+      pipe.puts "I am the god of tits and wine"
+      expected_output << "And the source of this quip?\n"
+      pipe.puts "Tyrion Lannister"
+      expected_output << "What mood should this address?(Sad/Happy)\n"
+      pipe.puts "Happy"
       expected_output << "\"#{test_rec}\" has been added\n"
       expected_output << main_menu
-      pipe.puts "4"
-      expected_output << "1. #{test_rec}\n"
+      pipe.puts "5"
+      expected_output << "You have successfully exited the management menu.\n"
       shell_output = pipe.read
       pipe.close_write
       pipe.close_read
@@ -54,6 +63,7 @@ class AddingANewRecommendationTest < MiniTest::Test
 
 
   def test_a_sad_path_adding_recommendation
+    skip
     shell_output = ""
     test_rec = "A Song of Ice and Fire"
     expected_output = main_menu
@@ -68,6 +78,9 @@ class AddingANewRecommendationTest < MiniTest::Test
       expected_output << main_menu
       pipe.puts "4"
       expected_output << "1. #{test_rec}\n"
+      expected_output << main_menu
+      pipe.puts "5"
+      expected_output << "You have successfully exited the management menu.\n"
       shell_output = pipe.read
       pipe.close_write
       pipe.close_read

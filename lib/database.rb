@@ -9,7 +9,6 @@ class Database
       title varchar(255) NOT NULL,
       author varchar(255),
       quip varchar(400),
-      source varchar(255),
       mood varchar(40)
     );
     SQL

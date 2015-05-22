@@ -1,14 +1,13 @@
 
 class Recommendation
 
-  attr_accessor :title
-  attr_reader :id, :errors, :author, :quip, :source, :mood
+  attr_accessor :id, :title, :author, :quip, :mood
+  attr_reader :errors
 
-  def initialize(title = nil, author = nil)
+  def initialize(title, author, quip, mood)
     self.title = title
     self.author = author
     self.quip = quip
-    self.source = source
     self.mood = mood
   end
 
@@ -17,7 +16,7 @@ class Recommendation
   end
 
   def self.all
-    Database.execute("select * from recommendations order by title ASC").map do |row|
+    Database.execute("select * from recommendations").map do |row|
       populate_from_database(row)
     end
   end
@@ -43,10 +42,7 @@ class Recommendation
       @errors = "\"#{author}\" is not a valid book author."
       false
     elsif quip.nil? or quip.empty? or /^\d+$/.match(quip)
-      @errors = "\"#{quip=()}\" is not a valid quip."
-      false
-    elsif source.nil? or source.empty? or /^\d+$/.match(source)
-      @errors = "\"#{source}\" is not a valid source."
+      @errors = "\"#{quip}\" is not a valid quip."
       false
     elsif mood.nil? or mood.empty? or /^\d+$/.match(mood)
       @errors = "\"#{mood}\" is not a valid mood."
@@ -57,23 +53,42 @@ class Recommendation
     end
   end
 
-  def save
+  def save(*args)
     return false unless valid?
-    Database.execute("INSERT into recommendations (title, author, quip, source, mood) VALUES (?, ?, ?, ?, ?)", title, author, quip, source, mood)
+    Database.execute("INSERT into recommendations (title, author, quip, mood) VALUES (?, ?, ?, ?)", title, author, quip, mood)
     @id = Database.execute("SELECT last_insert_rowid()")[0]['last_insert_rowid()']
   end
 
-  private
-
   def self.populate_from_database(row)
-    recommendation = Recommendation.new
+    recommendation = Recommendation.new(row['title'], row['author'], row['quip'], row['mood'])
     recommendation.title = row['title']
     recommendation.author = row['author']
     recommendation.quip = row['quip']
-    recommendation.source = row['source']
     recommendation.mood = row['mood']
     recommendation.instance_variable_set(:@id, row['id'])
     recommendation
+  end
+
+  def self.sad_rec
+    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'sa%'").map do |row|
+      populate_from_database(row)
+    end
+  end
+
+  def self.happy_rec
+    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'ha%'").map do |row|
+      populate_from_database(row)
+    end
+  end
+
+  def self.neutral_rec
+    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'so%'").map do |row|
+      populate_from_database(row)
+    end
+  end
+
+  def self.delete(id)
+    Database.execute("DELETE FROM recommendations WHERE id=?", id)
   end
 
 
