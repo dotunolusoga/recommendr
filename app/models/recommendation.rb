@@ -70,19 +70,19 @@ class Recommendation
   end
 
   def self.sad_rec
-    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'sa%'").map do |row|
+    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'sa%' ORDER BY RANDOM() LIMIT 1").map do |row|
       populate_from_database(row)
     end
   end
 
   def self.happy_rec
-    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'ha%'").map do |row|
+    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'ha%' ORDER BY RANDOM() LIMIT 1").map do |row|
       populate_from_database(row)
     end
   end
 
   def self.neutral_rec
-    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'so%'").map do |row|
+    Database.execute("SELECT * FROM recommendations WHERE mood LIKE 'so%' ORDER BY RANDOM() LIMIT 1").map do |row|
       populate_from_database(row)
     end
   end

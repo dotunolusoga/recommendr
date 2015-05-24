@@ -50,7 +50,7 @@ elsif ARGV.size == 1 and ARGV[0] == 'manage'
         exit
       end
       menu.choice('Delete a recommendation') {
-        recommendation_controller.delete
+        recommendation_controller.delete_rec
         say("Recommendation has been deleted\n")
       }
       menu.choice('List all recommendations') {

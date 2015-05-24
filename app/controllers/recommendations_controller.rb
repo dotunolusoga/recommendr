@@ -85,19 +85,13 @@ class RecommendationsController
     say(res)
   end
 
-  def delete
+  def delete_rec
     recommendations = Recommendation.all
     self.index
     delete_id = ask("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n\n")
     delete_id = delete_id.to_i - 1
     recommendation = recommendations[delete_id]
-    if recommmendation.nil? or recommendation.empty? #or recommendation > recommendations.length
-      "Invalid recommendation"
-    else
-      Recommendation.delete(recommendation.id)
-      "#{recommendation.title} has been deleted"
-      return
-    end
+    Recommendation.delete(recommendation.id)
   end
 
 end
