@@ -21,7 +21,7 @@ describe RecommendationsController do
       assert_equal 1, Recommendation.count
     end
 
-    it "should not a recommendation all spaces" do
+    it "should not add a recommendation with all spaces" do
       rec_name = "     "
       res = controller.add(rec_name)
       assert_equal "\"\" is not a valid book title.", res

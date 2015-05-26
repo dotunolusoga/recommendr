@@ -3,11 +3,16 @@ require_relative '../test_helper'
 class BasicUsageTest < MiniTest::Test
 
   def test_minimum_arguments_required
+    skip
     shell_output = ""
     expected_output = ""
     IO.popen('./recommendr') do |pipe|
-      expected_output = "Can we make a recommendation for you today?(y/n)\n"
+      expected_output << "Can we make a recommendation for you today?(y/n)\n"
+      pipe.puts << 'n'
+      expected_output << 'Really dude? You\'re actually not going to read a book? I\'m so done with you'
       shell_output = pipe.read
+      pipe.close_write
+      pipe.close_read
     end
     assert_equal expected_output, shell_output
   end

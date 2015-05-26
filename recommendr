@@ -23,10 +23,10 @@ if ARGV.empty?
   if user_input.downcase == 'y'
     user_response = ask("How are you feeling today?(happy/so so/sad)\n")
     if user_response.downcase == "sad"
-      puts "\nTHESE BOOKS SHOULD HELP YOU FEEL BETTER!\n\n"
+      puts "\nTHIS BOOK SHOULD HELP YOU FEEL BETTER!\n\n"
       say("\n#{recommendation_controller.sad_result}\n\n")
     elsif user_response.downcase == "happy"
-      puts "\nTHESE BOOKS SHOULD KNOCK YOU DOWN TO SIZE!\n\n"
+      puts "\nTHIS SHOULD KNOCK YOU DOWN TO SIZE!\n\n"
       say("\n#{recommendation_controller.happy_result}\n\n")
     else
       puts "\nREAD A BOOK ANYWAY\n\n"
@@ -34,6 +34,7 @@ if ARGV.empty?
     end
   else
     say('Really dude? You\'re actually not going to read a book? I\'m so done with you')
+    exit
   end
 elsif ARGV.size == 1 and ARGV[0] == 'manage'
   loop do
@@ -45,10 +46,9 @@ elsif ARGV.size == 1 and ARGV[0] == 'manage'
       menu.choice('Add a recommendation') {
         recommendation_controller.add_prompt
       }
-      menu.choice('Edit a recommendation') do
-        say ("Which recommendation fails to meet your exacting standards 'Oh Great & Powerful One'?\n")
-        exit
-      end
+      menu.choice('Edit a recommendation') {
+        recommendation_controller.edit_rec
+      }
       menu.choice('Delete a recommendation') {
         recommendation_controller.delete_rec
         say("Recommendation has been deleted\n")

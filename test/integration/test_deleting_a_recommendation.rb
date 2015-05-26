@@ -4,6 +4,7 @@ require_relative "../test_helper"
 class DeletingRecommendationTest < MiniTest::Test
 
   def test_deleting_happy_path
+    skip
     shell_output = ""
     expected_output = ""
     IO.popen('./recommendr manage', 'r+') do |pipe|
